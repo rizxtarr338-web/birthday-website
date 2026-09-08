@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Fatima ❤️</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Floating Hearts Background -->
+    <div class="hearts-container"></div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="title">💝 Happy Birthday Fatima 💝</h1>
+            <p class="subtitle">A special day for a special person ❤️</p>
+        </header>
+
+        <!-- Main Menu -->
+        <div class="menu" id="menu">
+            <button class="menu-btn" onclick="openSection('love-letter')">
+                <span class="emoji">💌</span>
+                <span>Love Letter</span>
+            </button>
+            <button class="menu-btn" onclick="openSection('why-special')">
+                <span class="emoji">🥰</span>
+                <span>Why You Are Special</span>
+            </button>
+            <button class="menu-btn" onclick="openSection('memories')">
+                <span class="emoji">📸</span>
+                <span>Memories / Photo Gallery</span>
+            </button>
+            <button class="menu-btn" onclick="openSection('surprise')">
+                <span class="emoji">🎁</span>
+                <span>Secret Surprise</span>
+            </button>
+            <button class="menu-btn" onclick="openSection('dua')">
+                <span class="emoji">🤲</span>
+                <span>Special Dua</span>
+            </button>
+            <button class="menu-btn" onclick="openSection('note')">
+                <span class="emoji">📝</span>
+                <span>My Note</span>
+            </button>
+            <button class="menu-btn" onclick="openSection('promise')">
+                <span class="emoji">💍</span>
+                <span>My Promise</span>
+            </button>
+            <button class="menu-btn" onclick="openSection('wish')">
+                <span class="emoji">🌙</span>
+                <span>Birthday Wish</span>
+            </button>
+        </div>
+
+        <!-- Sections -->
+
+        <!-- 1. Love Letter -->
+        <section id="love-letter" class="section hidden">
+            <button class="back-btn" onclick="backToMenu()">← Back</button>
+            <div class="section-content">
+                <h2>💌 My Love Letter</h2>
+                <div class="letter-content">
+                    <p>Dear Fatima,</p>
+                    <p>Today is your special day, and I want you to know how much you mean to me. From the moment we met, you brought light into my life that I never knew I was missing.</p>
+                    <p>Your smile brightens even my darkest days. Your laughter is the most beautiful music I've ever heard. Your kindness and compassion inspire me to be a better person every single day.</p>
+                    <p>I love the way you see the world with such beauty and grace. I love your strength, your wisdom, and your gentle heart. I love how you make me feel like I'm the most important person in the world when you look at me.</p>
+                    <p>Every moment with you feels like a gift. Every memory we've created together is treasured in my heart. And I promise you, the best chapters of our story are still being written.</p>
+                    <p>On this special day, I want you to know that you are loved beyond measure. You deserve all the happiness in the world, and I'm grateful for the opportunity to be a part of your journey.</p>
+                    <p>Happy Birthday to the love of my life. You are my everything.</p>
+                    <p>Forever yours,<br>With all my love ❤️</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Why You Are Special -->
+        <section id="why-special" class="section hidden">
+            <button class="back-btn" onclick="backToMenu()">← Back</button>
+            <div class="section-content">
+                <h2>🥰 Why You Are Special</h2>
+                <div class="reasons-list">
+                    <div class="reason-card">
+                        <h3>✨ Your Beautiful Heart</h3>
+                        <p>You have the kindest heart I've ever known. You care deeply about everyone around you and always put others first.</p>
+                    </div>
+                    <div class="reason-card">
+                        <h3>💪 Your Strength</h3>
+                        <p>You inspire me with your resilience and determination. No matter what challenges come your way, you face them with grace and courage.</p>
+                    </div>
+                    <div class="reason-card">
+                        <h3>🌟 Your Intelligence</h3>
+                        <p>Your mind is sharp and brilliant. I love having deep conversations with you and learning from your unique perspective on life.</p>
+                    </div>
+                    <div class="reason-card">
+                        <h3>😊 Your Smile</h3>
+                        <p>Your smile can light up any room. When you smile at me, it makes my heart skip a beat and reminds me why I fell in love with you.</p>
+                    </div>
+                    <div class="reason-card">
+                        <h3>🎨 Your Creativity</h3>
+                        <p>You see the world in colors I never knew existed. Your creativity and imagination make life with you endlessly interesting.</p>
+                    </div>
+                    <div class="reason-card">
+                        <h3>💖 Your Love</h3>
+                        <p>The way you love is pure and genuine. You make me feel cherished, valued, and completely safe being myself around you.</p>
+                    </div>
+                    <div class="reason-card">
+                        <h3>🌺 Your Grace</h3>
+                        <p>You carry yourself with such elegance and poise. There's something magical about the way you move through the world.</p>
+                    </div>
+                    <div class="reason-card">
+                        <h3>👑 You Are Irreplaceable</h3>
+                        <p>In all the world, there's only one Fatima. And I thank God every day that you are mine, and that I am lucky enough to call you mine.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Memories / Photo Gallery -->
+        <section id="memories" class="section hidden">
+            <button class="back-btn" onclick="backToMenu()">← Back</button>
+            <div class="section-content">
+                <h2>📸 Our Memories Together</h2>
+                <div class="gallery">
+                    <div class="gallery-item" onclick="openPhoto(this)">
+                        <div class="photo-placeholder">
+                            <span>����</span>
+                            <p>Our First Meeting</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item" onclick="openPhoto(this)">
+                        <div class="photo-placeholder">
+                            <span>🌅</span>
+                            <p>Sunrise Moments</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item" onclick="openPhoto(this)">
+                        <div class="photo-placeholder">
+                            <span>🎂</span>
+                            <p>Celebrating Together</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item" onclick="openPhoto(this)">
+                        <div class="photo-placeholder">
+                            <span>🌹</span>
+                            <p>Romantic Evening</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item" onclick="openPhoto(this)">
+                        <div class="photo-placeholder">
+                            <span>✈️</span>
+                            <p>Our Adventures</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item" onclick="openPhoto(this)">
+                        <div class="photo-placeholder">
+                            <span>🎭</span>
+                            <p>Laughing Together</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item" onclick="openPhoto(this)">
+                        <div class="photo-placeholder">
+                            <span>🌙</span>
+                            <p>Late Night Talks</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item" onclick="openPhoto(this)">
+                        <div class="photo-placeholder">
+                            <span>💕</span>
+                            <p>Just Us</p>
+                        </div>
+                    </div>
+                </div>
+                <p class="gallery-note">💡 Tip: Replace the placeholders with your actual photos! Add image files to the repo and update the gallery items with image URLs.</p>
+            </div>
+        </section>
+
+        <!-- 4. Secret Surprise -->
+        <section id="surprise" class="section hidden">
+            <button class="back-btn" onclick="backToMenu()">← Back</button>
+            <div class="section-content">
+                <h2>🎁 Secret Surprise</h2>
+                <div class="surprise-box" id="surprise-box" onclick="revealSurprise()">
+                    <div class="surprise-inner">
+                        <p>Click to reveal your surprise! 🎉</p>
+                    </div>
+                </div>
+                <div id="surprise-reveal" class="surprise-reveal hidden">
+                    <div class="surprise-content">
+                        <h3>🎊 Congratulations! 🎊</h3>
+                        <p>You've unlocked a special moment!</p>
+                        <div class="surprise-message">
+                            <p>This night is all about celebrating YOU.</p>
+                            <p>I've planned something special for us, but the real gift is simply spending time with you.</p>
+                            <p>You deserve to feel as amazing as you make me feel every single day.</p>
+                            <p>Get ready for an unforgettable evening! 🌹✨</p>
+                        </div>
+                        <div class="fireworks">
+                            <span>🎆</span>
+                            <span>🎇</span>
+                            <span>✨</span>
+                            <span>🎆</span>
+                            <span>🎇</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Special Dua -->
+        <section id="dua" class="section hidden">
+            <button class="back-btn" onclick="backToMenu()">← Back</button>
+            <div class="section-content">
+                <h2>🤲 Special Dua for You</h2>
+                <div class="dua-content">
+                    <div class="dua-card">
+                        <p class="dua-text">
+                            اللهم في يوم ميلادك يا فاطمة، أدعو الله أن يحفظك ويرعاك
+                        </p>
+                        <p class="dua-translation">
+                            "On your birthday, O Fatima, I pray to Allah to protect and care for you"
+                        </p>
+                    </div>
+                    <div class="dua-card">
+                        <p class="dua-text">
+                            اللهم اجعلها سنة خير عليك، وأدم عليك الصحة والعافية والسعادة
+                        </p>
+                        <p class="dua-translation">
+                            "O Allah, let this year be filled with goodness, health, wellness, and happiness"
+                        </p>
+                    </div>
+                    <div class="dua-card">
+                        <p class="dua-text">
+                            اللهم استجب دعاءها وحقق أحلامها وأطل عمرها على طاعتك
+                        </p>
+                        <p class="dua-translation">
+                            "O Allah, accept her prayers, fulfill her dreams, and grant her a long life in Your obedience"
+                        </p>
+                    </div>
+                    <div class="dua-card">
+                        <p class="dua-text">
+                            اللهم اجعلنا من أهل البر والتقوى، واجمع بيننا على الخير والمحبة
+                        </p>
+                        <p class="dua-translation">
+                            "O Allah, make us among the righteous, and unite us in goodness and love"
+                        </p>
+                    </div>
+                    <div class="dua-card">
+                        <p class="dua-text">
+                            ��مين يا رب العالمين
+                        </p>
+                        <p class="dua-translation">
+                            "Amen, O Lord of the Worlds"
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. My Note -->
+        <section id="note" class="section hidden">
+            <button class="back-btn" onclick="backToMenu()">← Back</button>
+            <div class="section-content">
+                <h2>📝 A Note Just for You</h2>
+                <div class="note-paper">
+                    <div class="note-text">
+                        <p>Dearest Fatima,</p>
+                        <p>I wanted to take a moment to put my feelings into words for you on your special day.</p>
+                        <p>You are not just my girlfriend, you are my best friend, my inspiration, and my home. With you, I found what I've been searching for all my life.</p>
+                        <p>I love the way you challenge me to be better, the way you believe in my dreams even when I doubt myself, and the way you love me unconditionally.</p>
+                        <p>Every day with you is a blessing. Every kiss, every hug, every conversation – they all matter to me. You matter to me.</p>
+                        <p>I promise to always stand by your side, to support your dreams, to make you laugh when you're sad, and to love you more deeply with each passing day.</p>
+                        <p>Thank you for being born. Thank you for choosing me. Thank you for being YOU.</p>
+                        <p>May Allah bless you with all the happiness in this world and the hereafter.</p>
+                        <p>Happy Birthday to my one and only,<br>
+                        With infinite love,<br>
+                        Me ❤️</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. My Promise -->
+        <section id="promise" class="section hidden">
+            <button class="back-btn" onclick="backToMenu()">← Back</button>
+            <div class="section-content">
+                <h2>💍 My Promise to You</h2>
+                <div class="promises-container">
+                    <div class="promise-item">
+                        <h3>💝 To Love You</h3>
+                        <p>I promise to love you with all my heart, through every season of life, and to choose you again and again.</p>
+                    </div>
+                    <div class="promise-item">
+                        <h3>🛡️ To Protect You</h3>
+                        <p>I promise to be your shield against the world's pain and your safe haven in every storm.</p>
+                    </div>
+                    <div class="promise-item">
+                        <h3>👂 To Listen</h3>
+                        <p>I promise to listen to your heart, understand your dreams, and be present in every moment we share.</p>
+                    </div>
+                    <div class="promise-item">
+                        <h3>💪 To Support You</h3>
+                        <p>I promise to stand beside you in every endeavor and celebrate your victories as if they were my own.</p>
+                    </div>
+                    <div class="promise-item">
+                        <h3>😊 To Make You Smile</h3>
+                        <p>I promise to bring joy and laughter into your life every single day.</p>
+                    </div>
+                    <div class="promise-item">
+                        <h3>🤝 To Be Faithful</h3>
+                        <p>I promise to be true to you always, to respect you, and to honor the sacred bond we share.</p>
+                    </div>
+                    <div class="promise-item">
+                        <h3>🌱 To Grow Together</h3>
+                        <p>I promise to grow with you, to learn from you, and to build a beautiful future together.</p>
+                    </div>
+                    <div class="promise-item">
+                        <h3>💕 To Choose You Always</h3>
+                        <p>I promise that no matter what life brings, I will always choose you, love you, and cherish you.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. Birthday Wish -->
+        <section id="wish" class="section hidden">
+            <button class="back-btn" onclick="backToMenu()">← Back</button>
+            <div class="section-content">
+                <h2>🌙 My Birthday Wish for You</h2>
+                <div class="wish-content">
+                    <div class="wish-text">
+                        <p>As you blow out your candles today, I wish for you...</p>
+                        <ul class="wishes-list">
+                            <li>✨ A year filled with endless joy and beautiful moments</li>
+                            <li>💚 Health, happiness, and inner peace</li>
+                            <li>🎯 The strength to achieve all your dreams and goals</li>
+                            <li>👨‍👩‍❤️ Love that grows deeper and more meaningful every day</li>
+                            <li>🌟 Success in everything you pursue</li>
+                            <li>😄 Laughter that echoes through every day</li>
+                            <li>🙏 Blessings from Allah in abundance</li>
+                            <li>💎 A life as beautiful and precious as you are</li>
+                            <li>🎊 Celebrations with the people you love most</li>
+                            <li>❤️ My eternal love and devotion</li>
+                        </ul>
+                    </div>
+                    <div class="wish-decoration">
+                        <p class="wish-stars">✨ 🌟 ✨ 🌟 ✨</p>
+                        <p class="wish-final">
+                            On this special day, know that you are loved beyond measure.<br>
+                            Happy Birthday, my one true love! 🎂💕
+                        </p>
+                        <p class="wish-stars">✨ 🌟 ✨ 🌟 ✨</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
