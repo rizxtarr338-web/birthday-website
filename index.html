@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Ali's magical birthday surprise website"
+      content="Happy Birthday Ali — premium 3D birthday surprise"
     />
     <title>Happy Birthday Ali</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -20,21 +20,21 @@
     <div class="starfield" aria-hidden="true"></div>
     <div class="sparkles" aria-hidden="true"></div>
 
-    <div class="welcome-screen" id="welcomeScreen">
+    <div class="welcome-screen" id="welcomeScreen" aria-label="Welcome screen">
       <div class="welcome-card">
-        <div class="welcome-badge">Mama's special surprise</div>
+        <div class="welcome-badge">Mama's surprise</div>
         <h1>HAPPY BIRTHDAY</h1>
         <h2>ALI</h2>
-        <p>Tap to enter the magic</p>
+        <p>Tap to enter the celebration</p>
       </div>
     </div>
 
     <div class="page-shell">
       <header class="hero" id="top">
         <nav class="top-nav" aria-label="Main navigation">
-          <a href="#gallery">Gallery</a>
-          <a href="#ai-world">AI World</a>
+          <a href="#memories">Memories</a>
           <a href="#message">Message</a>
+          <a href="#wishes">Wishes</a>
           <a href="#gift">Gift</a>
         </nav>
 
@@ -43,11 +43,11 @@
             <p class="eyebrow">Little prince</p>
             <h1>HAPPY BIRTHDAY <span>ALI</span></h1>
             <p class="subtitle">
-              A beautiful day filled with laughter, love, blessings, and endless smiles.
+              A magical day full of laughter, love, smiles, blessings and beautiful memories.
             </p>
             <div class="cta-row">
-              <a href="#gallery" class="primary-btn">See Memories</a>
-              <button type="button" id="musicToggle" class="secondary-btn">♫ Play Song</button>
+              <a href="#memories" class="primary-btn">See Memories</a>
+              <button id="musicToggle" class="secondary-btn" type="button">♫ Play Song</button>
             </div>
           </div>
 
@@ -73,35 +73,27 @@
       </header>
 
       <main class="content">
-        <section class="gallery-section" id="gallery">
+        <section class="memories-section" id="memories">
           <div class="section-heading">
             <span class="heading-kicker">Ali's memories</span>
-            <h2>Original Photo Gallery</h2>
+            <h2>Birthday Moments</h2>
           </div>
-          <div class="gallery-grid" id="originalGallery"></div>
-        </section>
 
-        <section class="ai-section" id="ai-world">
-          <div class="section-heading center">
-            <span class="heading-kicker">Magic and wonder</span>
-            <h2>Ali's AI Magical World</h2>
+          <div class="gallery-grid" aria-label="Ali selected memory cards">
+            <article class="gallery-card card-one"><div class="card-label">Smile</div></article>
+            <article class="gallery-card card-two"><div class="card-label">Joy</div></article>
+            <article class="gallery-card card-three"><div class="card-label">Love</div></article>
+            <article class="gallery-card card-four"><div class="card-label">Fun</div></article>
+            <article class="gallery-card card-five"><div class="card-label">Magic</div></article>
+            <article class="gallery-card card-six"><div class="card-label">Prince</div></article>
+            <article class="gallery-card card-seven"><div class="card-label">Happy</div></article>
           </div>
-          <div class="featured-ai">
-            <div class="featured-card">
-              <img src="assets/photos/ai/ali-royal-prince.jpg" alt="Ali's royal prince portrait" onerror="this.style.display='none'; this.parentElement.classList.add('placeholder-card')" />
-              <div class="featured-text">
-                <span>Featured Portrait</span>
-                <h3>Royal Prince Ali</h3>
-              </div>
-            </div>
-          </div>
-          <div class="ai-grid" id="aiGallery"></div>
         </section>
 
         <section class="message-section" id="message">
           <div class="section-heading center">
-            <span class="heading-kicker">Message from Mama</span>
-            <h2>Birthday Wishes</h2>
+            <span class="heading-kicker">With love</span>
+            <h2>Special Birthday Message</h2>
           </div>
 
           <div class="message-card">
@@ -112,18 +104,19 @@
           </div>
         </section>
 
-        <section class="wishes-section">
+        <section class="wishes-section" id="wishes">
           <div class="section-heading center">
-            <span class="heading-kicker">A bright wish</span>
-            <h2>Birthday Blessings</h2>
+            <span class="heading-kicker">A beautiful wish</span>
+            <h2>Birthday Wishes</h2>
           </div>
+
           <div class="wish-grid">
-            <div class="wish-item"><span>🎉</span><p>Endless joy and laughter</p></div>
-            <div class="wish-item"><span>💪</span><p>Good health and strength</p></div>
-            <div class="wish-item"><span>🌟</span><p>Success in every dream</p></div>
-            <div class="wish-item"><span>💙</span><p>Kindness and a shining heart</p></div>
-            <div class="wish-item"><span>🕊️</span><p>Peace and beautiful memories</p></div>
-            <div class="wish-item"><span>👑</span><p>A future full of blessings</p></div>
+            <div class="wish-item"><span>🎉</span><p>Endless laughter and joyful moments</p></div>
+            <div class="wish-item"><span>💪</span><p>Good health and strong spirit</p></div>
+            <div class="wish-item"><span>🌟</span><p>Success in every dream and goal</p></div>
+            <div class="wish-item"><span>💙</span><p>A kind heart that always shines</p></div>
+            <div class="wish-item"><span>🕊️</span><p>Peace, love and beautiful blessings</p></div>
+            <div class="wish-item"><span>👑</span><p>A bright future full of happiness</p></div>
           </div>
         </section>
 
@@ -132,15 +125,15 @@
             <span class="heading-kicker">One more surprise</span>
             <h2>Open the Birthday Gift</h2>
           </div>
+
           <div class="gift-box-wrap">
             <button type="button" class="gift-button" id="giftButton">🎁 Surprise Gift</button>
-            <div class="gift-reveal" id="giftReveal">
+            <div class="gift-reveal" id="giftReveal" aria-live="polite">
               <div class="gift-card">
                 <div class="gift-burst">🎊 ✨ 🎉 ✨ 🎊</div>
-                <h3>Ali, you are truly loved</h3>
+                <h3>Ali, you are loved beyond measure</h3>
                 <p>
-                  May this year bring you happiness, big smiles, endless love, and a beautiful
-                  future full of blessings.
+                  May this year bring you happiness, smiles, love, success and endless blessings.
                 </p>
               </div>
             </div>

@@ -1,86 +1,34 @@
-const originalGallery = document.getElementById('originalGallery');
-const aiGallery = document.getElementById('aiGallery');
 const welcomeScreen = document.getElementById('welcomeScreen');
 const musicToggle = document.getElementById('musicToggle');
 const giftButton = document.getElementById('giftButton');
 const giftReveal = document.getElementById('giftReveal');
-
-const originalPhotos = [
-  { name: 'ali-1.jpg', label: 'Ali Memory 1' },
-  { name: 'ali-2.jpg', label: 'Ali Memory 2' },
-  { name: 'ali-3.jpg', label: 'Ali Memory 3' },
-  { name: 'ali-4.jpg', label: 'Ali Memory 4' },
-  { name: 'ali-5.jpg', label: 'Ali Memory 5' },
-  { name: 'ali-6.jpg', label: 'Ali Memory 6' },
-  { name: 'ali-7.jpg', label: 'Ali Memory 7' }
-];
-
-const aiPhotos = [
-  { name: 'ali-royal-prince.jpg', label: 'Royal Prince Ali' },
-  { name: 'ali-birthday-king.jpg', label: 'Birthday King Ali' },
-  { name: 'ali-cinematic-portrait.jpg', label: 'Cinematic Portrait' },
-  { name: 'ali-magical-portrait.jpg', label: 'Magical Birthday Portrait' }
-];
-
-function createOriginalGallery() {
-  originalGallery.innerHTML = originalPhotos
-    .map(
-      (photo, index) => `
-        <figure class="gallery-card">
-          <img
-            src="assets/photos/original/${photo.name}"
-            alt="${photo.label}"
-            onerror="this.style.display='none'; this.parentElement.classList.add('placeholder-card')"
-          />
-          <figcaption>Ali ${index + 1}</figcaption>
-        </figure>
-      `
-    )
-    .join('');
-}
-
-function createAiGallery() {
-  aiGallery.innerHTML = aiPhotos
-    .map(
-      (photo) => `
-        <figure class="ai-card">
-          <img
-            src="assets/photos/ai/${photo.name}"
-            alt="${photo.label}"
-            onerror="this.style.display='none'; this.parentElement.classList.add('placeholder-card')"
-          />
-          <figcaption>${photo.label}</figcaption>
-        </figure>
-      `
-    )
-    .join('');
-}
 
 welcomeScreen.addEventListener('click', () => {
   welcomeScreen.classList.add('hidden');
 });
 
 let audioContext;
-let musicTimer = null;
+let musicInterval = null;
 let musicPlaying = false;
 
-function playTone(freq, duration, time) {
+function playTone(freq, duration, delay = 0) {
   const context = audioContext || new (window.AudioContext || window.webkitAudioContext)();
   audioContext = context;
+
   const oscillator = context.createOscillator();
   const gain = context.createGain();
 
   oscillator.type = 'sine';
-  oscillator.frequency.setValueAtTime(freq, context.currentTime + time);
-  gain.gain.setValueAtTime(0.001, context.currentTime + time);
-  gain.gain.exponentialRampToValueAtTime(0.08, context.currentTime + time + 0.03);
-  gain.gain.exponentialRampToValueAtTime(0.0001, context.currentTime + time + duration);
+  oscillator.frequency.setValueAtTime(freq, context.currentTime + delay);
+  gain.gain.setValueAtTime(0.001, context.currentTime + delay);
+  gain.gain.exponentialRampToValueAtTime(0.08, context.currentTime + delay + 0.03);
+  gain.gain.exponentialRampToValueAtTime(0.0001, context.currentTime + delay + duration);
 
   oscillator.connect(gain);
   gain.connect(context.destination);
 
-  oscillator.start(context.currentTime + time);
-  oscillator.stop(context.currentTime + time + duration);
+  oscillator.start(context.currentTime + delay);
+  oscillator.stop(context.currentTime + delay + duration);
 }
 
 function playBirthdayMelody() {
@@ -93,7 +41,6 @@ function playBirthdayMelody() {
   }
 
   const melody = [392, 392, 440, 392, 523.25, 494, 392, 392, 440, 392, 587.33, 523.25];
-
   melody.forEach((note, index) => {
     playTone(note, 0.42, index * 0.35);
   });
@@ -109,10 +56,8 @@ function toggleMusic() {
   }
 
   if (musicPlaying) {
-    if (musicTimer) {
-      clearInterval(musicTimer);
-      musicTimer = null;
-    }
+    clearInterval(musicInterval);
+    musicInterval = null;
     musicPlaying = false;
     musicToggle.textContent = '♫ Play Song';
     return;
@@ -121,7 +66,7 @@ function toggleMusic() {
   musicPlaying = true;
   musicToggle.textContent = '⏸ Pause Song';
   playBirthdayMelody();
-  musicTimer = setInterval(playBirthdayMelody, 4300);
+  musicInterval = setInterval(playBirthdayMelody, 4300);
 }
 
 musicToggle.addEventListener('click', toggleMusic);
@@ -130,6 +75,7 @@ giftButton.addEventListener('click', () => {
   giftReveal.classList.add('visible');
   giftButton.textContent = '🎉 Gift Opened!';
   giftButton.disabled = true;
+
   const burst = document.createElement('div');
   burst.textContent = '✨ 🎊 ✨ 🎉 ✨';
   burst.style.position = 'fixed';
@@ -140,8 +86,51 @@ giftButton.addEventListener('click', () => {
   burst.style.zIndex = '30';
   burst.style.pointerEvents = 'none';
   document.body.appendChild(burst);
+
   setTimeout(() => burst.remove(), 1200);
+  createConfettiBurst();
 });
+
+function createConfettiBurst() {
+  const burst = document.createElement('div');
+  burst.style.position = 'fixed';
+  burst.style.inset = '0';
+  burst.style.pointerEvents = 'none';
+  burst.style.zIndex = '50';
+  document.body.appendChild(burst);
+
+  const colors = ['#ffd166', '#ff79c6', '#7dd3fc', '#7cf1ba', '#ffc9e7'];
+
+  for (let i = 0; i < 90; i += 1) {
+    const piece = document.createElement('span');
+    piece.style.position = 'absolute';
+    piece.style.left = `${50 + (Math.random() - 0.5) * 18}%`;
+    piece.style.top = `${48 + (Math.random() - 0.5) * 12}%`;
+    piece.style.width = `${8 + Math.random() * 10}px`;
+    piece.style.height = `${14 + Math.random() * 16}px`;
+    piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+    piece.style.borderRadius = '50%';
+    piece.style.opacity = '0';
+    piece.style.transform = 'translate3d(0,0,0) rotate(0deg)';
+    piece.style.animation = `confettiFall ${1.8 + Math.random() * 1.4}s ease-in forwards`;
+    burst.appendChild(piece);
+  }
+
+  const style = document.createElement('style');
+  style.textContent = `
+    @keyframes confettiFall {
+      0% { opacity: 0; transform: translate3d(0, 0, 0) rotate(0deg); }
+      15% { opacity: 1; }
+      100% { opacity: 0; transform: translate3d(${(Math.random() - 0.5) * 420}px, 220px, 0) rotate(${Math.random() * 720}deg); }
+    }
+  `;
+  document.head.appendChild(style);
+
+  setTimeout(() => {
+    burst.remove();
+    style.remove();
+  }, 2200);
+}
 
 function initThreeScene() {
   const mount = document.getElementById('three-scene');
@@ -149,7 +138,7 @@ function initThreeScene() {
 
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(38, mount.clientWidth / mount.clientHeight, 0.1, 1000);
-  camera.position.set(0, 1.6, 8.4);
+  camera.position.set(0, 1.6, 8.5);
 
   const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
@@ -235,8 +224,6 @@ function initThreeScene() {
 }
 
 window.addEventListener('load', () => {
-  createOriginalGallery();
-  createAiGallery();
   initThreeScene();
   setTimeout(() => welcomeScreen.classList.add('hidden'), 1600);
 });
